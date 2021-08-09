@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import { useSelector,useDispatch } from "react-redux";
+import {nameChange} from "./actions/index";
+
+function App(){
+  let mystate=useSelector((state)=>state.changingName);
+  let dispatch=useDispatch();
+  return(
+    <div>
+      <h1>{mystate} <button onClick={()=>dispatch(nameChange())}>Change name</button></h1>
     </div>
-  );
+  )
 }
-
 export default App;
